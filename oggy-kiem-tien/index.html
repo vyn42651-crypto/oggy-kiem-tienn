@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110f">
+  <meta name="description" content="OGGY Kiếm Tiền — nhật ký thử nghiệm, minh bạch thu chi và công cụ AI thực hành.">
+  <title>OGGY Kiếm Tiền — AI Lab</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar wrap">
+    <a class="brand" href="#" aria-label="OGGY Kiếm Tiền trang chủ"><span class="brand-mark">O</span><span>OGGY <b>KIẾM TIỀN</b><small>AI EXPERIMENT LAB</small></span></a>
+    <nav><a href="#dashboard">Tổng quan</a><a href="#journal">Nhật ký</a><a href="#ledger">Sổ thu chi</a><a href="#services">Dịch vụ</a></nav>
+    <button id="themeToggle" class="icon-btn" aria-label="Đổi giao diện">◐</button>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> NHẬT KÝ CÔNG KHAI · BẢN THỬ NGHIỆM</div>
+        <h1>AI làm việc.<br><span>Con số nói thật.</span></h1>
+        <p class="lead">OGGY ghi lại hành trình thử nghiệm các sản phẩm số và công cụ AI: việc đã làm, chi phí đã phát sinh, doanh thu đã xác nhận. Không hứa hẹn thu nhập — chỉ công khai tiến trình.</p>
+        <div class="hero-actions"><a class="btn primary" href="#dashboard">Xem bảng điều khiển <span>↘</span></a><a class="btn ghost" href="#journal">Đọc nhật ký</a></div>
+        <div class="hero-meta"><span><i class="dot green"></i> Hệ thống demo sẵn sàng</span><span>⌁ Dữ liệu mẫu được gắn nhãn</span></div>
+      </div>
+      <div class="terminal panel">
+        <div class="terminal-head"><span class="traffic"><i></i><i></i><i></i></span><span>oggy-agent / live console</span><span class="live">● LIVE</span></div>
+        <div class="terminal-body">
+          <p class="muted">$ oggy status --today</p><p><span class="green-text">✓</span> Nhật ký đã sẵn sàng</p><p><span class="green-text">✓</span> Bộ theo dõi thu chi hoạt động</p><p><span class="green-text">✓</span> Chat AI <span id="aiStatus" class="tag">đang kiểm tra…</span></p>
+          <div class="terminal-line"></div><p class="muted">$ next_action</p><h3 id="nextAction">Tạo một sản phẩm nhỏ, kiểm chứng nhu cầu.</h3>
+          <div class="progress-label"><span>Tiến độ mục tiêu</span><b id="goalPct">12%</b></div><div class="progress"><span id="goalBar" style="width:12%"></span></div>
+          <p class="tiny muted">* Số liệu ban đầu là dữ liệu minh họa, không phải bằng chứng thu nhập.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section">
+      <div class="section-heading"><div><div class="eyebrow">01 / DASHBOARD</div><h2>Bảng điều khiển</h2></div><span class="pill">CẬP NHẬT TỪ SỔ CÁI</span></div>
+      <div class="stats-grid">
+        <article class="stat-card panel"><div class="stat-top"><span>Số dư dự án</span><span class="stat-icon">↗</span></div><strong id="balance">0 ₫</strong><small>Vốn + doanh thu đã nhận − chi tiền mặt</small></article>
+        <article class="stat-card panel"><div class="stat-top"><span>Doanh thu xác nhận</span><span class="stat-icon">₫</span></div><strong id="income">0 ₫</strong><small>Chỉ tính khoản đã nhận tiền</small></article>
+        <article class="stat-card panel"><div class="stat-top"><span>Chi phí tiền mặt</span><span class="stat-icon">↘</span></div><strong id="expenses">0 ₫</strong><small>Khoản chi thực tế đã ghi nhận</small></article>
+        <article class="stat-card panel"><div class="stat-top"><span>Mục tiêu thử nghiệm</span><span class="stat-icon">◎</span></div><strong>10.000.000 ₫</strong><small>Đích thử nghiệm, không phải cam kết</small></article>
+      </div>
+      <div class="dashboard-bottom">
+        <article class="panel goal-panel"><div class="card-heading"><div><span class="eyebrow">MỤC TIÊU</span><h3>Chặng đường đầu tiên</h3></div><span class="big-ring">↗</span></div><div class="goal-numbers"><strong id="goalAmount">1.200.000 ₫</strong><span> / 10.000.000 ₫</span></div><div class="progress"><span id="goalBar2" style="width:12%"></span></div><div class="goal-foot"><span id="goalPercent2">12% hoàn thành</span><span>Cập nhật theo dữ liệu</span></div></article>
+        <article class="panel note-panel"><span class="eyebrow">NGUYÊN TẮC OGGY</span><h3>Minh bạch trước, tăng trưởng sau.</h3><p>Mọi khoản thu/chi cần có ngày, mô tả và trạng thái. Dữ liệu demo sẽ không được trình bày như giao dịch thật.</p><a href="#ledger" class="text-link">Xem sổ thu chi <span>→</span></a></article>
+      </div>
+    </section>
+
+    <section id="journal" class="section">
+      <div class="section-heading"><div><div class="eyebrow">02 / FIELD NOTES</div><h2>Nhật ký hành trình</h2></div><button id="addEntryBtn" class="btn ghost small">＋ Thêm ghi chú</button></div>
+      <div class="journal-layout"><div id="journalList" class="journal-list"></div><aside class="panel side-card"><span class="eyebrow">HÔM NAY</span><h3>Ưu tiên một việc có thể kiểm chứng.</h3><p>Đừng chỉ đo số lượt xem. Hãy ghi lại vấn đề người dùng gặp, giải pháp đã thử và phản hồi nhận được.</p><div class="mini-metric"><span>Ngày dự án</span><b id="projectDay">01 / 30</b></div><div class="mini-metric"><span>Nhật ký đã ghi</span><b id="entryCount">03</b></div><div class="mini-metric"><span>Chế độ dữ liệu</span><b id="dataMode">Demo</b></div></aside></div>
+    </section>
+
+    <section id="ledger" class="section">
+      <div class="section-heading"><div><div class="eyebrow">03 / TRANSPARENT BOOKS</div><h2>Sổ thu chi</h2><p class="section-desc">Bản demo dùng dữ liệu trên trình duyệt. Khi triển khai, kết nối D1 để lưu dữ liệu dùng chung.</p></div><button id="addTransactionBtn" class="btn primary small">＋ Ghi giao dịch</button></div>
+      <div class="panel table-panel"><div class="table-tools"><div class="filters" role="group" aria-label="Lọc giao dịch"><button class="filter active" data-filter="all">Tất cả</button><button class="filter" data-filter="income">Khoản thu</button><button class="filter" data-filter="expense">Khoản chi</button></div><span id="ledgerCount" class="muted small-text">0 giao dịch</span></div><div class="table-scroll"><table><thead><tr><th>Ngày</th><th>Khoản mục</th><th>Loại</th><th>Trạng thái</th><th class="right">Số tiền</th></tr></thead><tbody id="ledgerRows"></tbody></table></div><div id="emptyLedger" class="empty hidden">Chưa có giao dịch phù hợp. Hãy thêm một dòng để bắt đầu.</div></div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-heading"><div><div class="eyebrow">04 / SMALL DIGITAL BUILDS</div><h2>Yêu cầu làm sản phẩm</h2></div><span class="pill">KHÔNG THANH TOÁN TRÊN TRANG DEMO</span></div>
+      <div class="services-grid">
+        <article class="service-card panel"><span class="service-icon">⌘</span><h3>Landing page gọn nhẹ</h3><p>Trang giới thiệu sản phẩm, portfolio hoặc chiến dịch nhỏ.</p><div class="service-foot"><span>Phạm vi rõ ràng</span><b>Liên hệ báo giá</b></div></article>
+        <article class="service-card panel"><span class="service-icon">✳</span><h3>Nội dung hỗ trợ AI</h3><p>Ý tưởng bài đăng, dàn ý video ngắn và lịch nội dung.</p><div class="service-foot"><span>Con người duyệt</span><b>Liên hệ báo giá</b></div></article>
+        <article class="service-card panel"><span class="service-icon">▤</span><h3>Tự động hóa đơn giản</h3><p>Biểu mẫu, bảng theo dõi hoặc quy trình lặp lại nhỏ.</p><div class="service-foot"><span>Ước lượng trước</span><b>Liên hệ báo giá</b></div></article>
+      </div>
+      <form id="requestForm" class="panel request-form">
+        <div><span class="eyebrow">BẮT ĐẦU TỪ Ý TƯỞNG</span><h3>Gửi yêu cầu dự án</h3><p class="muted">Không nhập thông tin thanh toán hoặc dữ liệu nhạy cảm.</p></div>
+        <div class="form-grid"><label>Tên gọi<input name="name" required maxlength="80" placeholder="Tên của bạn"></label><label>Email liên hệ<input name="email" required type="email" maxlength="160" placeholder="ban@example.com"></label><label class="full">Bạn cần làm gì?<textarea name="details" required maxlength="2000" rows="4" placeholder="Mô tả mục tiêu, tính năng và thời hạn mong muốn…"></textarea></label></div>
+        <div class="form-actions"><button class="btn primary" type="submit">Gửi yêu cầu <span>→</span></button><span id="requestStatus" class="muted small-text" aria-live="polite">Bản demo sẽ lưu yêu cầu trên trình duyệt.</span></div>
+      </form>
+    </section>
+
+    <section class="section ai-section" id="assistant">
+      <div class="section-heading"><div><div class="eyebrow">05 / OGGY AI</div><h2>Trợ lý ý tưởng</h2><p class="section-desc">Hỏi về kiểm chứng ý tưởng, nội dung, kế hoạch sản phẩm hoặc tự động hóa nhỏ.</p></div><span class="ai-badge"><span class="pulse"></span> AI ASSISTANT</span></div>
+      <div class="chat panel"><div class="chat-head"><div class="avatar">O</div><div><b>OGGY Assistant</b><small id="chatSub">Trợ lý dự án · sẵn sàng</small></div><button id="clearChat" class="icon-btn" aria-label="Xóa cuộc trò chuyện">↻</button></div><div id="chatMessages" class="chat-messages"><div class="message assistant">Chào bạn! Mình có thể giúp chia nhỏ ý tưởng thành các bước có thể kiểm chứng. Bạn đang muốn xây dựng sản phẩm gì?</div></div><div class="suggestions"><button>Gợi ý sản phẩm số nhỏ</button><button>Lập kế hoạch 7 ngày</button><button>Viết nội dung video ngắn</button></div><form id="chatForm" class="chat-input"><textarea id="chatInput" rows="1" maxlength="4000" placeholder="Nhập câu hỏi cho OGGY…" aria-label="Tin nhắn cho OGGY"></textarea><button class="btn primary" type="submit" aria-label="Gửi tin nhắn">Gửi ↑</button></form><div class="chat-disclaimer">AI có thể trả lời sai. Không gửi mật khẩu, dữ liệu cá nhân nhạy cảm hoặc thông tin thanh toán.</div></div>
+    </section>
+
+    <section class="section closing"><div><div class="eyebrow">CÔNG KHAI & CÓ TRÁCH NHIỆM</div><h2>Đo tiến độ bằng bằng chứng,<br><span>không bằng lời hứa.</span></h2><p>OGGY Kiếm Tiền là dự án thử nghiệm công cụ số. Không bảo đảm thu nhập, lợi nhuận hay kết quả kinh doanh.</p></div><a class="btn ghost" href="#dashboard">Trở lại đầu trang ↑</a></section>
+  </main>
+  <footer class="wrap footer"><a class="brand mini" href="#"><span class="brand-mark">O</span><span>OGGY <b>KIẾM TIỀN</b><small>BUILD · MEASURE · LEARN</small></span></a><span>© <span id="year"></span> OGGY Kiếm Tiền · Bản thử nghiệm</span><a href="#services">Liên hệ dự án ↑</a><span class="footer-legal"><a href="/privacy.html">Quyền riêng tư</a> · <a href="/terms.html">Điều khoản</a></span></footer>
+
+  <dialog id="entryDialog" class="modal"><form id="entryForm" method="dialog"><div class="modal-head"><h3>Thêm nhật ký</h3><button type="button" class="icon-btn close-modal" aria-label="Đóng">×</button></div><label>Tiêu đề<input name="title" required maxlength="120" placeholder="Hôm nay đã thử điều gì?"></label><label>Nội dung<textarea name="body" required maxlength="1500" rows="5" placeholder="Mục tiêu, hành động, kết quả và bài học…"></textarea></label><label>Trạng thái<select name="status"><option>Đang thử nghiệm</option><option>Đã hoàn thành</option><option>Cần cải thiện</option></select></label><button class="btn primary" type="submit">Lưu nhật ký</button></form></dialog>
+  <dialog id="transactionDialog" class="modal"><form id="transactionForm" method="dialog"><div class="modal-head"><h3>Ghi giao dịch</h3><button type="button" class="icon-btn close-modal" aria-label="Đóng">×</button></div><label>Khoản mục<input name="title" required maxlength="120" placeholder="Ví dụ: Bán template"></label><div class="form-grid"><label>Loại<select name="type"><option value="income">Khoản thu</option><option value="expense">Khoản chi</option></select></label><label>Số tiền (VNĐ)<input name="amount" type="number" min="1" max="100000000000" required placeholder="100000"></label><label>Ngày<input name="date" type="date" required></label><label>Trạng thái<select name="status"><option value="confirmed">Đã xác nhận</option><option value="pending">Đang chờ</option></select></label></div><button class="btn primary" type="submit">Lưu giao dịch</button><p class="tiny muted">Dữ liệu trình duyệt là demo, chưa phải sổ kế toán chính thức.</p></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

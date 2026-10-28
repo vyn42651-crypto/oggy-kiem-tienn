@@ -1,0 +1,9 @@
+name = "oggy-kiem-tien"
+compatibility_date = "2026-10-28"
+pages_build_output_dir = "."
+
+# After creating a Cloudflare D1 database, uncomment and fill these values:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "oggy-kiem-tien-db"
+# database_id = "REPLACE_WITH_D1_DATABASE_ID"
